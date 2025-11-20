@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - ESPORTIFY</title>
+    <link rel="icon" type="image/png" href="../assets/images/esportify-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal-enhanced.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <div class="logo">ESPORTIFY</div>
+                <div class="tagline">The Gaming Revolution</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="events.html">Événements</a></li>
+                <li><a href="#" id="loginBtn">Connexion</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="content-container">
+            <h1 class="page-title">CONTACTEZ-NOUS</h1>
+            <p class="page-subtitle">Une question ? Une suggestion ? Nous sommes là pour vous</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="content-container">
+            <div class="contact-grid">
+                
+                <div class="contact-form-container">
+                    <h2 class="section-subtitle">Envoyez-nous un message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="event">Question sur un événement</option>
+                                <option value="registration">Problème d'inscription</option>
+                                <option value="technical">Support technique</option>
+                                <option value="partnership">Partenariat</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Envoyer le message</span>
+                            <span class="icon">📤</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h2 class="section-subtitle">Informations</h2>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3a5955544e5b594e7a5f494a55484e535c43145c48">[email&#160;protected]</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📱</div>
+                        <div class="info-content">
+                            <h3>Téléphone</h3>
+                            <p>+33 1 23 45 67 89</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h3>Adresse</h3>
+                            <p>123 Rue du Gaming<br>75001 Paris, France</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">🕐</div>
+                        <div class="info-content">
+                            <h3>Horaires</h3>
+                            <p>Lun - Ven: 9h - 18h<br>Sam - Dim: Fermé</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Suivez-nous</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <span>🎮</span> Discord
+                            </a>
+                            <a href="#" class="social-icon">
+                                <span>📺</span> Twitch
+                            </a>
+                            <a href="#" class="social-icon">
+                                <span>🐦</span> Twitter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="content-container">
+            <h2 class="section-title">Questions Fréquentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">Comment créer un compte ?</h3>
+                    <p class="faq-answer">Cliquez sur "Connexion" puis sur "Créer un compte". Remplissez le formulaire avec vos informations et validez votre email.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Comment s'inscrire à un tournoi ?</h3>
+                    <p class="faq-answer">Connectez-vous, accédez à la page "Événements", sélectionnez un tournoi et cliquez sur "S'inscrire".</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Les tournois sont-ils gratuits ?</h3>
+                    <p class="faq-answer">La plupart de nos tournois sont gratuits. Certains événements premium peuvent nécessiter une participation financière.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Comment devenir organisateur ?</h3>
+                    <p class="faq-answer">Contactez-nous via ce formulaire en sélectionnant "Partenariat". Notre équipe étudiera votre demande.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2>CONNEXION</h2>
+                <p>Accédez à votre espace joueur</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Se souvenir de moi</span>
+                    </label>
+                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="login-button">Se connecter</button>
+            </form>
+            <div class="signup-link">
+                <p>Pas encore de compte ? <a href="register.html">Créer un compte</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="content-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ESPORTIFY</h4>
+                    <p>La plateforme e-sport nouvelle génération</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="events.html">Événements</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">RGPD</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ESPORTIFY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/global-functions-complete.js"></script>
+</body>
+</html>

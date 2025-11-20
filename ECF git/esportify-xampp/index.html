@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPORTIFY - Plateforme E-Sport Nouvelle Génération</title>
+    <link rel="icon" type="image/png" href="./assets/images/esportify-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal-enhanced.css">
+    <link rel="stylesheet" href="css/slideshow.css">
+    <link rel="stylesheet" href="css/image-enhancement.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <div class="logo">ESPORTIFY</div>
+                <div class="tagline">The Gaming Revolution</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="pages/events.html">Événements</a></li>
+                <li><a href="#" id="loginBtn">Connexion</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ESPORTIFY</h1>
+            <p>Rejoignez la révolution e-sport</p>
+        </div>
+    </section>
+
+    <section class="presentation">
+        <div class="content-container">
+            <h2 class="section-title">À Propos d'Esportify</h2>
+            <div class="presentation-content">
+                <p>
+                    Esportify est une startup innovante spécialisée dans le domaine du e-sport, fondée le 17 mars 2021 en France. 
+                    Nous organisons des événements compétitifs de jeux vidéo et proposons une plateforme dédiée aux joueurs passionnés.
+                </p>
+                <br>
+                <p>
+                    Notre mission : offrir aux joueurs une expérience unique pour s'inscrire aux tournois, suivre leurs performances 
+                    et échanger avec la communauté e-sport.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="media-section">
+        <div class="content-container">
+            <h2 class="section-title">Galerie</h2>
+
+            <div class="slideshow-container">
+
+                <div class="slide fade">
+                    <img src="./assets/images/league of legend.jpg" alt="League of Legends">
+                    <div class="slide-caption">
+                        <h3>Tournoi League of Legends 2024</h3>
+                        <p>Rejoignez l'élite du MOBA</p>
+                    </div>
+                </div>
+
+                <div class="slide fade">
+                    <img src="./assets/images/valorant.jpg" alt="Valorant">
+                    <div class="slide-caption">
+                        <h3>Championship Valorant</h3>
+                        <p>Affrontez les meilleurs tireurs tactiques</p>
+                    </div>
+                </div>
+
+                <div class="slide fade">
+                    <img src="./assets/images/cs2.png" alt="Counter-Strike 2">
+                    <div class="slide-caption">
+                        <h3>Counter-Strike 2 Invitational</h3>
+                        <p>La légende du FPS compétitif</p>
+                    </div>
+                </div>
+
+                <div class="slide fade">
+                    <img src="./assets/images/RL.jpg" alt="Rocket League">
+                    <div class="slide-caption">
+                        <h3>Rocket League Championship</h3>
+                        <p>Football aérien et vitesse extrême</p>
+                    </div>
+                </div>
+
+                <a class="slide-prev" onclick="changeSlide(-1)">❮</a>
+                <a class="slide-next" onclick="changeSlide(1)">❯</a>
+                
+            </div>
+
+            <div class="slide-dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="events-section">
+        <div class="content-container">
+            <h2 class="section-title">Événements à Venir</h2>
+            <div class="events-grid" id="upcomingEvents">
+                
+                <div class="event-card">
+                    <div class="event-header">
+                        <span class="event-badge">Chargement...</span>
+                        <span class="event-date">--</span>
+                    </div>
+                    <h3 class="event-title">Chargement des événements...</h3>
+                    <div class="event-details">
+                        <p class="event-organizer">Veuillez patienter</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="pages/events.html" class="cta-button">Voir tous les événements</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="content-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ESPORTIFY</h4>
+                    <p>La plateforme e-sport nouvelle génération</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="pages/events.html">Événements</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">RGPD</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ESPORTIFY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2>CONNEXION</h2>
+                <p>Accédez à votre espace joueur</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Se souvenir de moi</span>
+                    </label>
+                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="login-button">Se connecter</button>
+            </form>
+            <div class="signup-link">
+                <p>Pas encore de compte ? <a href="pages/register.html">Créer un compte</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js?v=2"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slideshow.js"></script>
+    <script src="js/global-functions-complete.js"></script>
+    <script src="js/fix-missing-functions.js"></script>
+    <script src="js/fix-api-definitif.js"></script>
+</body>
+</html>

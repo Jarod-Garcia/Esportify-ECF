@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements - ESPORTIFY</title>
+    <link rel="icon" type="image/png" href="../assets/images/esportify-icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal-enhanced.css">
+    <link rel="stylesheet" href="../css/events.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <div class="logo">ESPORTIFY</div>
+                <div class="tagline">The Gaming Revolution</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="events.html">Événements</a></li>
+                <li><a href="#" id="loginBtn">Connexion</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="content-container">
+            <h1 class="page-title">ÉVÉNEMENTS E-SPORT</h1>
+            <p class="page-subtitle">Découvrez tous nos tournois et compétitions</p>
+        </div>
+    </section>
+
+    <section class="filters-section">
+        <div class="content-container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="filterPlayers">
+                        <span class="filter-icon">👥</span> Nombre de joueurs
+                    </label>
+                    <select id="filterPlayers" class="filter-select">
+                        <option value="">Tous</option>
+                        <option value="1-10">1-10 joueurs</option>
+                        <option value="11-20">11-20 joueurs</option>
+                        <option value="21-50">21-50 joueurs</option>
+                        <option value="50+">50+ joueurs</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterDate">
+                        <span class="filter-icon">📅</span> Date
+                    </label>
+                    <select id="filterDate" class="filter-select">
+                        <option value="">Toutes les dates</option>
+                        <option value="today">Aujourd'hui</option>
+                        <option value="week">Cette semaine</option>
+                        <option value="month">Ce mois-ci</option>
+                        <option value="upcoming">À venir</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterOrganizer">
+                        <span class="filter-icon">🎮</span> Organisateur
+                    </label>
+                    <input type="text" id="filterOrganizer" class="filter-input" placeholder="Nom de l'organisateur">
+                </div>
+
+                <div class="filter-group">
+                    <label for="sortBy">
+                        <span class="filter-icon">🔄</span> Trier par
+                    </label>
+                    <select id="sortBy" class="filter-select">
+                        <option value="date-asc">Date (croissante)</option>
+                        <option value="date-desc">Date (décroissante)</option>
+                        <option value="players-asc">Joueurs (croissant)</option>
+                        <option value="players-desc">Joueurs (décroissant)</option>
+                    </select>
+                </div>
+
+                <button class="filter-reset" id="resetFilters">
+                    <span>🔄</span> Réinitialiser
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="events-list-section">
+        <div class="content-container">
+            <div class="events-stats">
+                <p><span id="eventCount">12</span> événements trouvés</p>
+            </div>
+
+            <div class="events-grid" id="eventsGrid">
+
+                <div class="event-card" data-players="16" data-date="2025-11-25" data-organizer="ProGamer123">
+                    <div class="event-header">
+                        <span class="event-badge badge-upcoming">À venir</span>
+                        <span class="event-date">25 Nov 2025</span>
+                    </div>
+                    <h3 class="event-title">Tournoi League of Legends</h3>
+                    <p class="event-description">
+                        Grand tournoi de League of Legends avec lots à gagner. Niveau intermédiaire requis.
+                    </p>
+                    <div class="event-details">
+                        <p class="event-organizer">
+                            <span class="icon">🎮</span> Par: ProGamer123
+                        </p>
+                        <p class="event-players">
+                            <span class="icon">👥</span> 12/16 joueurs
+                        </p>
+                        <p class="event-time">
+                            <span class="icon">🕐</span> 18:00 - 22:00
+                        </p>
+                    </div>
+                    <button class="event-btn" onclick="showEventDetails(1)">Voir détails</button>
+                </div>
+
+                <div class="event-card" data-players="10" data-date="2025-11-16" data-organizer="ESportMaster">
+                    <div class="event-header">
+                        <span class="event-badge badge-live">En cours</span>
+                        <span class="event-date">16 Nov 2025</span>
+                    </div>
+                    <h3 class="event-title">Valorant Champions</h3>
+                    <p class="event-description">
+                        Championship Valorant pour les meilleurs joueurs. Inscription limitée.
+                    </p>
+                    <div class="event-details">
+                        <p class="event-organizer">
+                            <span class="icon">🎮</span> Par: ESportMaster
+                        </p>
+                        <p class="event-players">
+                            <span class="icon">👥</span> 8/10 joueurs
+                        </p>
+                        <p class="event-time">
+                            <span class="icon">🕐</span> 14:00 - 20:00
+                        </p>
+                    </div>
+                    <button class="event-btn" onclick="showEventDetails(2)">Voir détails</button>
+                </div>
+
+                <div class="event-card" data-players="32" data-date="2025-11-30" data-organizer="NeoGaming">
+                    <div class="event-header">
+                        <span class="event-badge badge-upcoming">À venir</span>
+                        <span class="event-date">30 Nov 2025</span>
+                    </div>
+                    <h3 class="event-title">CS:GO Championship</h3>
+                    <p class="event-description">
+                        Tournoi Counter-Strike Global Offensive. Format 5v5, double élimination.
+                    </p>
+                    <div class="event-details">
+                        <p class="event-organizer">
+                            <span class="icon">🎮</span> Par: NeoGaming
+                        </p>
+                        <p class="event-players">
+                            <span class="icon">👥</span> 20/32 joueurs
+                        </p>
+                        <p class="event-time">
+                            <span class="icon">🕐</span> 10:00 - 18:00
+                        </p>
+                    </div>
+                    <button class="event-btn" onclick="showEventDetails(3)">Voir détails</button>
+                </div>
+
+                <div class="event-card" data-players="8" data-date="2025-11-20" data-organizer="GamerZone">
+                    <div class="event-header">
+                        <span class="event-badge badge-upcoming">À venir</span>
+                        <span class="event-date">20 Nov 2025</span>
+                    </div>
+                    <h3 class="event-title">Rocket League Pro Series</h3>
+                    <p class="event-description">
+                        Compétition Rocket League en équipes de 3. Places limitées !
+                    </p>
+                    <div class="event-details">
+                        <p class="event-organizer">
+                            <span class="icon">🎮</span> Par: GamerZone
+                        </p>
+                        <p class="event-players">
+                            <span class="icon">👥</span> 6/8 joueurs
+                        </p>
+                        <p class="event-time">
+                            <span class="icon">🕐</span> 16:00 - 21:00
+                        </p>
+                    </div>
+                    <button class="event-btn" onclick="showEventDetails(4)">Voir détails</button>
+                </div>
+
+                <div class="event-card" data-players="24" data-date="2025-12-05" data-organizer="ProGamer123">
+                    <div class="event-header">
+                        <span class="event-badge badge-upcoming">À venir</span>
+                        <span class="event-date">05 Déc 2025</span>
+                    </div>
+                    <h3 class="event-title">Fortnite Battle Royale</h3>
+                    <p class="event-description">
+                        Tournoi Battle Royale Fortnite. Solo uniquement, tous niveaux.
+                    </p>
+                    <div class="event-details">
+                        <p class="event-organizer">
+                            <span class="icon">🎮</span> Par: ProGamer123
+                        </p>
+                        <p class="event-players">
+                            <span class="icon">👥</span> 15/24 joueurs
+                        </p>
+                        <p class="event-time">
+                            <span class="icon">🕐</span> 19:00 - 23:00
+                        </p>
+                    </div>
+                    <button class="event-btn" onclick="showEventDetails(5)">Voir détails</button>
+                </div>
+
+                <div class="event-card" data-players="16" data-date="2025-11-28" data-organizer="EliteGaming">
+                    <div class="event-header">
+                        <span class="event-badge badge-upcoming">À venir</span>
+                        <span class="event-date">28 Nov 2025</span>
+                    </div>
+                    <h3 class="event-title">Apex Legends Tournament</h3>
+                    <p class="event-description">
+                        Tournoi Apex Legends en équipes. Cashprize de 500€ !
+                    </p>
+                    <div class="event-details">
+                        <p class="event-organizer">
+                            <span class="icon">🎮</span> Par: EliteGaming
+                        </p>
+                        <p class="event-players">
+                            <span class="icon">👥</span> 12/16 joueurs
+                        </p>
+                        <p class="event-time">
+                            <span class="icon">🕐</span> 15:00 - 19:00
+                        </p>
+                    </div>
+                    <button class="event-btn" onclick="showEventDetails(6)">Voir détails</button>
+                </div>
+            </div>
+
+            <div class="no-events" id="noEvents" style="display: none;">
+                <div class="no-events-icon">🎮</div>
+                <h3>Aucun événement trouvé</h3>
+                <p>Essayez de modifier vos filtres</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="eventModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" id="closeEventModal">&times;</span>
+            <div class="event-modal-content" id="eventModalContent">
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2>CONNEXION</h2>
+                <p>Connectez-vous pour vous inscrire aux événements</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Se souvenir de moi</span>
+                    </label>
+                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="login-button">Se connecter</button>
+            </form>
+            <div class="signup-link">
+                <p>Pas encore de compte ? <a href="register.html">Créer un compte</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="content-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ESPORTIFY</h4>
+                    <p>La plateforme e-sport nouvelle génération</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="events.html">Événements</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">RGPD</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ESPORTIFY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/events.js"></script>
+    <script src="../js/global-functions-complete.js"></script>
+</body>
+</html>

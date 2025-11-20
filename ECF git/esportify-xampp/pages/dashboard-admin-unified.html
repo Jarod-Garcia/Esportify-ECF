@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - ESPORTIFY</title>
+    <link rel="icon" type="image/png" href="../assets/images/esportify-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard-unified.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <div class="logo">ESPORTIFY</div>
+                <div class="tagline">Administration</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="events.html">Événements</a></li>
+                <li><a href="#" class="user-badge-nav">
+                    <span class="user-avatar-small admin">A</span>
+                    <span id="userName">Admin</span>
+                </a></li>
+                <li><a href="#" onclick="logoutUser()" class="logout-link">Déconnexion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-dashboard">
+        <div class="hero-content">
+            <h1>ADMINISTRATION</h1>
+            <p>Tableau de bord administrateur</p>
+        </div>
+    </section>
+
+    <section class="dashboard-nav-section">
+        <div class="content-container">
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-section="overview">
+                    <span class="tab-icon">📊</span>
+                    <span>Vue d'ensemble</span>
+                </button>
+                <button class="tab-btn" data-section="moderation">
+                    <span class="tab-icon">⚖️</span>
+                    <span>Modération</span>
+                    <span class="tab-badge" id="moderationBadge">0</span>
+                </button>
+                <button class="tab-btn" data-section="users">
+                    <span class="tab-icon">👥</span>
+                    <span>Utilisateurs</span>
+                </button>
+                <button class="tab-btn" data-section="events">
+                    <span class="tab-icon">🎮</span>
+                    <span>Événements</span>
+                </button>
+                <button class="tab-btn" data-section="reports">
+                    <span class="tab-icon">⚠️</span>
+                    <span>Signalements</span>
+                    <span class="tab-badge" id="reportsBadge">0</span>
+                </button>
+                <button class="tab-btn" data-section="analytics">
+                    <span class="tab-icon">📈</span>
+                    <span>Statistiques</span>
+                </button>
+                <button class="tab-btn" data-section="settings">
+                    <span class="tab-icon">⚙️</span>
+                    <span>Paramètres</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="overview" class="dashboard-section active">
+        <div class="stats-section">
+            <div class="content-container">
+                <h2 class="section-title">Statistiques globales</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-details">
+                            <div class="stat-label">Utilisateurs inscrits</div>
+                            <div class="stat-value" id="totalUsers">0</div>
+                            <div class="stat-change">+12% ce mois</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🎮</div>
+                        <div class="stat-details">
+                            <div class="stat-label">Événements actifs</div>
+                            <div class="stat-value" id="activeEvents">0</div>
+                            <div class="stat-change">+5 cette semaine</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-details">
+                            <div class="stat-label">En attente modération</div>
+                            <div class="stat-value" id="pendingEvents">0</div>
+                            <div class="stat-change">Action requise</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-details">
+                            <div class="stat-label">Participations totales</div>
+                            <div class="stat-value" id="totalParticipations">0</div>
+                            <div class="stat-change">+18% ce mois</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <h2 class="section-title">Actions rapides</h2>
+            <div class="quick-actions-grid">
+                <button class="action-card" onclick="switchTab('moderation')">
+                    <div class="action-icon">⚖️</div>
+                    <div class="action-title">Modération</div>
+                    <div class="action-description">Valider les événements en attente</div>
+                    <span class="action-badge" id="moderationQuickBadge">0</span>
+                </button>
+                <button class="action-card" onclick="switchTab('users')">
+                    <div class="action-icon">👥</div>
+                    <div class="action-title">Utilisateurs</div>
+                    <div class="action-description">Gérer les comptes utilisateurs</div>
+                </button>
+                <button class="action-card" onclick="switchTab('reports')">
+                    <div class="action-icon">⚠️</div>
+                    <div class="action-title">Signalements</div>
+                    <div class="action-description">Traiter les signalements</div>
+                    <span class="action-badge" id="reportsQuickBadge">0</span>
+                </button>
+                <button class="action-card" onclick="switchTab('analytics')">
+                    <div class="action-icon">📈</div>
+                    <div class="action-title">Statistiques</div>
+                    <div class="action-description">Voir les rapports détaillés</div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="moderation" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Modération des événements</h2>
+            <div class="events-grid" id="pendingEventsList">
+                
+                <p class="empty-state">Chargement des événements en attente...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="users" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Gestion des utilisateurs</h2>
+            <div class="table-container" id="usersTable">
+                
+                <p class="empty-state">Chargement des utilisateurs...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Tous les événements</h2>
+            <div class="events-grid" id="allEventsList">
+                
+                <p class="empty-state">Chargement des événements...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reports" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Signalements</h2>
+            <div class="reports-list" id="reportsList">
+                
+                <p class="empty-state">Aucun signalement pour le moment</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="analytics" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Statistiques détaillées</h2>
+            <div class="analytics-grid">
+                
+                <p class="empty-state">Les statistiques détaillées seront disponibles prochainement</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="settings" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Paramètres système</h2>
+            <div class="settings-grid">
+                
+                <p class="empty-state">Les paramètres seront disponibles prochainement</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="content-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ESPORTIFY</h4>
+                    <p>La plateforme e-sport nouvelle génération</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="events.html">Événements</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">RGPD</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ESPORTIFY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/dashboard-unified.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/global-functions-complete.js"></script>
+</body>
+</html>
