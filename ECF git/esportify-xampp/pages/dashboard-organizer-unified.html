@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Organisateur - ESPORTIFY</title>
+    <link rel="icon" type="image/png" href="../assets/images/esportify-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard-unified.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <div class="logo">ESPORTIFY</div>
+                <div class="tagline">Espace Organisateur</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="events.html">Événements</a></li>
+                <li><a href="#" class="user-badge-nav">
+                    <span class="user-avatar-small organizer">O</span>
+                    <span id="userName">Organisateur</span>
+                </a></li>
+                <li><a href="#" onclick="logoutUser()" class="logout-link">Déconnexion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero hero-dashboard">
+        <div class="hero-content">
+            <h1>BIENVENUE ORGANISATEUR</h1>
+            <p>Gérez vos événements e-sport</p>
+        </div>
+    </section>
+
+    <section class="dashboard-nav-section">
+        <div class="content-container">
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-section="overview">
+                    <span class="tab-icon">📊</span>
+                    <span>Vue d'ensemble</span>
+                </button>
+                <button class="tab-btn" data-section="my-events">
+                    <span class="tab-icon">🎮</span>
+                    <span>Mes événements</span>
+                </button>
+                <button class="tab-btn" data-section="create-event">
+                    <span class="tab-icon">➕</span>
+                    <span>Créer un événement</span>
+                </button>
+                <button class="tab-btn" data-section="participants">
+                    <span class="tab-icon">👥</span>
+                    <span>Participants</span>
+                </button>
+                <button class="tab-btn" data-section="analytics">
+                    <span class="tab-icon">📈</span>
+                    <span>Statistiques</span>
+                </button>
+                <button class="tab-btn" data-section="profile">
+                    <span class="tab-icon">👤</span>
+                    <span>Mon profil</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="overview" class="dashboard-section active">
+        <div class="stats-section">
+            <div class="content-container">
+                <h2 class="section-title">Vos statistiques</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🎮</div>
+                        <div class="stat-details">
+                            <div class="stat-label">Événements créés</div>
+                            <div class="stat-value" id="totalEvents">0</div>
+                            <div class="stat-change">Total</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-details">
+                            <div class="stat-label">Événements actifs</div>
+                            <div class="stat-value" id="activeEvents">0</div>
+                            <div class="stat-change">En cours</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-details">
+                            <div class="stat-label">En attente validation</div>
+                            <div class="stat-value" id="pendingEvents">0</div>
+                            <div class="stat-change">Modération admin</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-details">
+                            <div class="stat-label">Participants totaux</div>
+                            <div class="stat-value" id="totalParticipants">0</div>
+                            <div class="stat-change">Tous événements</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <h2 class="section-title">Actions rapides</h2>
+            <div class="quick-actions-grid">
+                <button class="action-card primary" onclick="switchTab('create-event')">
+                    <div class="action-icon">➕</div>
+                    <div class="action-title">Créer un événement</div>
+                    <div class="action-description">Organisez un nouveau tournoi</div>
+                </button>
+                <button class="action-card" onclick="switchTab('my-events')">
+                    <div class="action-icon">🎮</div>
+                    <div class="action-title">Mes événements</div>
+                    <div class="action-description">Gérer mes tournois actifs</div>
+                </button>
+                <button class="action-card" onclick="switchTab('participants')">
+                    <div class="action-icon">👥</div>
+                    <div class="action-title">Participants</div>
+                    <div class="action-description">Voir les joueurs inscrits</div>
+                </button>
+                <button class="action-card" onclick="switchTab('analytics')">
+                    <div class="action-icon">📈</div>
+                    <div class="action-title">Statistiques</div>
+                    <div class="action-description">Analyser mes performances</div>
+                </button>
+            </div>
+        </div>
+
+        <div class="events-section">
+            <div class="content-container">
+                <h2 class="section-title">Mes prochains événements</h2>
+                <div class="events-grid" id="upcomingEvents">
+                    <p class="empty-state">Chargement de vos événements...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="my-events" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Tous mes événements</h2>
+            <div class="events-grid" id="myEventsContainer">
+                <p class="empty-state">Chargement de vos événements...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="create-event" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Créer un nouvel événement</h2>
+            <div class="form-container">
+                <form id="createEventForm" class="event-form">
+                    <div class="form-group">
+                        <label for="eventTitle">Titre de l'événement *</label>
+                        <input type="text" id="eventTitle" name="title" required placeholder="Ex: Tournoi League of Legends">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventDescription">Description *</label>
+                        <textarea id="eventDescription" name="description" rows="5" required placeholder="Décrivez votre événement..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventDate">Date de début *</label>
+                            <input type="datetime-local" id="eventDate" name="start_date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventEndDate">Date de fin *</label>
+                            <input type="datetime-local" id="eventEndDate" name="end_date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventMaxPlayers">Nombre max de joueurs *</label>
+                            <input type="number" id="eventMaxPlayers" name="max_players" min="2" max="1000" required placeholder="16">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventLocation">Lieu</label>
+                            <input type="text" id="eventLocation" name="location" placeholder="Paris, France">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Créer l'événement</button>
+                        <button type="reset" class="btn-secondary">Réinitialiser</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="participants" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Participants à mes événements</h2>
+            <div class="table-container" id="participantsTable">
+                <p class="empty-state">Chargement des participants...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="analytics" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Statistiques détaillées</h2>
+            <div class="analytics-grid">
+                <p class="empty-state">Les statistiques détaillées seront disponibles prochainement</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="dashboard-section">
+        <div class="content-container">
+            <h2 class="section-title">Mon profil organisateur</h2>
+            <div class="profile-container">
+                <p class="empty-state">Les paramètres de profil seront disponibles prochainement</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="content-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ESPORTIFY</h4>
+                    <p>La plateforme e-sport nouvelle génération</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="events.html">Événements</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">RGPD</a></li>
+                        <li><a href="#">CGU</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ESPORTIFY - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/dashboard-unified.js"></script>
+    <script src="../js/organizer.js"></script>
+    <script src="../js/global-functions-complete.js"></script>
+</body>
+</html>
